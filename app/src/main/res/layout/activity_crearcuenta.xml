@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    tools:context= ".Myapp.crearcuenta">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:elevation="6dp"
+        android:padding="20dp"
+        app:cardCornerRadius="22dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@mipmap/icon_account_circle" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de usuario"
+            android:textColorHint="@color/black"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/rounded_cornenr"
+            android:padding="5dp"
+            android:inputType="text"
+            android:id="@+id/username_input" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="correo electronico"
+            android:textColorHint="@color/black"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/rounded_cornenr"
+            android:padding="5dp"
+            android:inputType="text"
+            android:id="@+id/correoElecronico_input" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Nueva Contraseña"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/rounded_cornenr"
+            android:padding="5dp"
+            android:inputType="textPassword"
+            android:id="@+id/newPassword_input" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Repite La Nueva Contraseña"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/rounded_cornenr"
+            android:padding="5dp"
+            android:inputType="textPassword"
+            android:id="@+id/confirmPassword_input" />
+
+        <!-- LinearLayout para los botones en la misma fila -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="9dp">
+
+
+
+            <Button
+                android:id="@+id/crear_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_cornenr"
+                android:backgroundTint="#202821"
+                android:padding="10dp"
+                android:text="Crear cuenta"
+                android:textColor="#50F08C"
+                android:layout_marginBottom="2dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
