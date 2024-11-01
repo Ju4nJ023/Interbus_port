@@ -16,6 +16,7 @@ import com.juanjose.interbuspr.R
 import com.juanjose.interbuspr.R.id.password_input
 import com.juanjose.interbuspr.R.id.username_input
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class InterBusApp : AppCompatActivity() {
 
@@ -24,47 +25,62 @@ class InterBusApp : AppCompatActivity() {
     lateinit var passwordInput: EditText
     lateinit var loginBtn: Button
     lateinit var crearBtn: Button
+    lateinit var db: FirebaseFirestore
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_inter_bus_app)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
 
-
-        }
         auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()  // Initialize Firestore
+
         usernameInput = findViewById(R.id.username_input)
         passwordInput = findViewById(R.id.password_input)
         loginBtn = findViewById(R.id.login_btn)
-        crearBtn =findViewById(R.id.crear_btn)
+        crearBtn = findViewById(R.id.crear_btn)
 
+        // boton de login
         loginBtn.setOnClickListener {
-            val email = usernameInput.text.toString()
+            val username = usernameInput.text.toString()
             val password = passwordInput.text.toString()
 
-             //validacion
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                auth.signInWithEmailAndPassword(email,password)
-                    .addOnCompleteListener{ task ->
-                        if (task.isSuccessful){
-                            val intent = Intent (this, BuscadorActivity ::class.java)
-                            startActivity(intent)
-                        }else {
-                            Toast.makeText(this, "error de autenticacion", Toast.LENGTH_SHORT).show()
+            if (username.isNotEmpty() && password.isNotEmpty()) {
+                // Encontra el usaraio dentro de la firestore
+                db.collection("users")
+                    .whereEqualTo("username", username)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        if (!documents.isEmpty) {
+                            val email = documents.documents[0].getString("email")
+
+                            //use el email para autenticacion
+                            auth.signInWithEmailAndPassword(email!!, password)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        val intent = Intent(this, BuscadorActivity::class.java)
+                                        startActivity(intent)
+                                    } else {
+                                        Toast.makeText(this, "Error de autenticación", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                        } else {
+                            Toast.makeText(this, "Nombre de usuario no encontrado", Toast.LENGTH_SHORT).show()
                         }
                     }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Error al buscar el nombre de usuario", Toast.LENGTH_SHORT).show()
+                    }
+            } else {
+                Toast.makeText(this, "Por favor ingresa el nombre de usuario y la contraseña", Toast.LENGTH_SHORT).show()
             }
         }
-        crearBtn.setOnClickListener{
-            val intent = Intent(this ,crearCuenta::class.java)
+
+        // Create account button click listener
+        crearBtn.setOnClickListener {
+            val intent = Intent(this, crearCuenta::class.java)
             startActivity(intent)
         }
-
     }
 }
 

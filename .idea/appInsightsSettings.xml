@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.juanjose.interbuspr" />
-                  <option name="mobileSdkAppId" value="1:116537305457:android:b7cf1b7cb8e0520dba6ed0" />
-                  <option name="projectId" value="interbus-4676f" />
-                  <option name="projectNumber" value="116537305457" />
+                  <option name="mobileSdkAppId" value="1:539867177919:android:acefccd72f169030d0770a" />
+                  <option name="projectId" value="interbuss-586e9" />
+                  <option name="projectNumber" value="539867177919" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

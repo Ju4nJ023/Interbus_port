@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "116537305457",
-    "project_id": "interbus-4676f",
-    "storage_bucket": "interbus-4676f.appspot.com"
+    "project_number": "539867177919",
+    "project_id": "interbuss-586e9",
+    "storage_bucket": "interbuss-586e9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:116537305457:android:b7cf1b7cb8e0520dba6ed0",
+        "mobilesdk_app_id": "1:539867177919:android:acefccd72f169030d0770a",
         "android_client_info": {
           "package_name": "com.juanjose.interbuspr"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDJ9cIYWeCPTrKQ5lGuFwnk5CYAadtDg-Q"
+          "current_key": "AIzaSyBDo_bEU1PQxvBCmLQUj4ir4NkuBWrX7gA"
         }
       ],
       "services": {
