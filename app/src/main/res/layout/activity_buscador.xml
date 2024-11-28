@@ -29,7 +29,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
@@ -37,7 +37,7 @@
                 <!-- Imagen de perfil dentro del CardView -->
                 <ImageView
                     android:id="@+id/user_icon"
-                    android:layout_width="40dp"
+                    android:layout_width="38dp"
                     android:layout_height="40dp"
                     android:src="@mipmap/icon_account_circle"
                     android:layout_marginEnd="8dp" />
@@ -54,7 +54,7 @@
 
         <!-- Buscador al lado derecho del CardView -->
         <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:elevation="8dp"
             android:padding="8dp"
@@ -96,9 +96,25 @@
         android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_layout"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/Paradas_recientes"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="300dp"
+        android:background="@color/grey"
+        android:fontFamily="@font/merriweather_bold"
+        android:gravity="center"
+        android:text="Paradas Recientes"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/my_map" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

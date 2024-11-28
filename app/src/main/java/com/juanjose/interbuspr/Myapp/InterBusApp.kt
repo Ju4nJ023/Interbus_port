@@ -49,10 +49,15 @@ class InterBusApp : AppCompatActivity() {
                 // Encontra el usaraio dentro de la firestore
                 db.collection("users")
                     .whereEqualTo("username", username)
+                    .limit(1)
                     .get()
                     .addOnSuccessListener { documents ->
                         if (!documents.isEmpty) {
                             val email = documents.documents[0].getString("email")
+                            if (email.isNullOrEmpty()){
+                                Toast.makeText(this,"Error: el usuario tiene un email que no es valido", Toast.LENGTH_SHORT).show()
+                                return@addOnSuccessListener
+                            }
 
                             //use el email para autenticacion
                             auth.signInWithEmailAndPassword(email!!, password)
@@ -83,4 +88,3 @@ class InterBusApp : AppCompatActivity() {
         }
     }
 }
-
