@@ -1,0 +1,13 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [[-3.6092340949572033, 40.56695700931106]]
+      }
+    }
+  ],
+  "paradas": [
+    { "nombre": "Salvador de Madariaga", "lat": -3.609200357222269, "lng": 40.567039396388935 },
+    { "nombre": "Otra parada", "lat": -3.600000, "lng": 40.570000 }
+  ]
+}

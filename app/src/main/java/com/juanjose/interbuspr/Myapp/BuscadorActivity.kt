@@ -27,6 +27,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 class BuscadorActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -34,6 +35,11 @@ class BuscadorActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var gMap: GoogleMap
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val LOCATION_PERMISSION_REQUEST_CODE = 1001
+
+
+    private var marker: Marker? = null
+
+
 
     lateinit var auth: FirebaseAuth
     lateinit var db: FirebaseFirestore
@@ -122,10 +128,27 @@ class BuscadorActivity : AppCompatActivity(), OnMapReadyCallback {
                 .title("Parada Linea 152C")
                 .snippet("Lineas 152C y L-7")
         )
+        googleMap.setOnMarkerClickListener { clickedMarker ->
+            Log.d("MarkerClick", "Marcador clicado: ${clickedMarker.title}")
+            if (clickedMarker.title == "Parada Linea 152C") {
+                // Iniciar la actividad ParadaActivity
+                val intent = Intent(this, ParadaActivity::class.java)
+                intent.putExtra("paradaNombre", clickedMarker.title) // Envía el nombre de la parada
+                intent.putExtra("paradaInfo", clickedMarker.snippet) // Envía información adicional (opcional)
+                startActivity(intent)
+                true // Indica que el clic fue manejado
+            } else {
+                false // Permitir que el mapa maneje otros clics
+            }
+        }
+
+
 
         getDeviceLocation()
 
         // Configurar un marcador en una ubicación
+
+
     }
     override fun onRequestPermissionsResult(
         requestCode: Int,

@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.juanjose.interbuspr"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.juanjose.interbuspr"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -43,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
     packaging {
         resources {
@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.play.services.maps)
+    implementation(libs.androidx.ui.test.junit4.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -80,12 +81,27 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+
+
+    //base de datos
+    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-auth:21.0.1")
+    implementation("com.google.firebase:firebase-auth:23.1.0")
+
+    //maps
     implementation ("com.google.android.gms:play-services-maps:19.0.0")
-    implementation ("com.google.android.gms:play-services-location:21.0.1")
-  
+    implementation ("com.google.android.gms:play-services-location:21.3.0")
+    implementation ("com.google.maps.android:android-maps-utils:3.9.0")
+
+
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+
+
+
+
 
 
 

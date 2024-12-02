@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InterBusPr</string>
+    <string name="google_maps_key">AIzaSyBe4B8d16lzSQw-nBCEU3VbexGyQJvHH_E</string>
 </resources>
